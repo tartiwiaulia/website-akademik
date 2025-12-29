@@ -14,7 +14,7 @@ if (isset($_POST['simpan'])) {
     $prodi = $_POST['program_studi_id'];
 
     mysqli_query($conn, "INSERT INTO mahasiswa VALUES ('$nim', '$nama', '$tgl', '$alamat', '$prodi')");
-    header("Location: read.php"); // Diarahkan ke read.php agar tidak 404
+    header("Location: read.php"); 
     exit;
 }
 

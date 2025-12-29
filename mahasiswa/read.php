@@ -6,7 +6,6 @@ if (!isset($_SESSION['login'])) {
 }
 include '../koneksi.php';
 
-// Query diperbaiki dengan JOIN agar nama prodi muncul
 $query = "SELECT mahasiswa.*, program_studi.nama_prodi 
           FROM mahasiswa 
           LEFT JOIN program_studi ON mahasiswa.program_studi_id = program_studi.id";

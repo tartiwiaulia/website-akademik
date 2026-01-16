@@ -8,7 +8,7 @@ include '../koneksi.php';
 
 $query = "SELECT mahasiswa.*, program_studi.nama_prodi 
           FROM mahasiswa 
-          LEFT JOIN program_studi ON mahasiswa.program_studi_id = program_studi.id";
+          LEFT JOIN program_studi ON mahasiswa.prodi_id = program_studi.id";
 $data = mysqli_query($conn, $query);
 ?>
 

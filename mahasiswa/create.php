@@ -11,9 +11,10 @@ if (isset($_POST['simpan'])) {
     $nama = $_POST['nama_mhs'];
     $tgl = $_POST['tgl_lahir'];
     $alamat = $_POST['alamat'];
-    $prodi = $_POST['program_studi_id'];
+    $prodi = $_POST['prodi_id'];
 
-    mysqli_query($conn, "INSERT INTO mahasiswa VALUES ('$nim', '$nama', '$tgl', '$alamat', '$prodi')");
+    mysqli_query($conn, "INSERT INTO mahasiswa (nim, nama_mhs, tgl_lahir, alamat, prodi_id) 
+    VALUES ('$nim', '$nama', '$tgl', '$alamat', '$prodi')");
     header("Location: read.php"); 
     exit;
 }
@@ -50,7 +51,7 @@ $prodi_list = mysqli_query($conn, "SELECT * FROM program_studi");
                     <textarea name="alamat" class="form-control mb-3" style="border-radius: 10px;"></textarea>
                     
                     <label class="form-label small fw-bold">Program Studi</label>
-                    <select name="program_studi_id" class="form-select mb-4" required style="border-radius: 10px;">
+                    <select name="prodi_id" class="form-select mb-4" required style="border-radius: 10px;">
                         <option value="">-- Pilih Prodi --</option>
                         <?php while($p = mysqli_fetch_assoc($prodi_list)) { ?>
                             <option value="<?= $p['id']; ?>"><?= $p['nama_prodi']; ?></option>

@@ -12,13 +12,13 @@ if (isset($_POST['update'])) {
     $nama = $_POST['nama_mhs'];
     $tgl = $_POST['tgl_lahir'];
     $alamat = $_POST['alamat'];
-    $prodi = $_POST['program_studi_id'];
+    $prodi = $_POST['prodi_id'];
 
     mysqli_query($conn, "UPDATE mahasiswa SET 
         nama_mhs='$nama', 
         tgl_lahir='$tgl', 
         alamat='$alamat', 
-        program_studi_id='$prodi' 
+        prodi_id='$prodi' 
         WHERE nim='$nim'");
 
     header("Location: read.php");
@@ -58,9 +58,9 @@ $prodi_list = mysqli_query($conn, "SELECT * FROM program_studi");
                     <textarea name="alamat" class="form-control mb-3" style="border-radius: 10px;"><?= $row['alamat']; ?></textarea>
                     
                     <label class="form-label small fw-bold">Program Studi</label>
-                    <select name="program_studi_id" class="form-select mb-4" style="border-radius: 10px;">
+                    <select name="prodi_id" class="form-select mb-4" style="border-radius: 10px;">
                         <?php while($p = mysqli_fetch_assoc($prodi_list)) { ?>
-                            <option value="<?= $p['id']; ?>" <?= ($p['id'] == $row['program_studi_id']) ? 'selected' : ''; ?>>
+                            <option value="<?= $p['id']; ?>" <?= ($p['id'] == $row['prodi_id']) ? 'selected' : ''; ?>>
                                 <?= $p['nama_prodi']; ?>
                             </option>
                         <?php } ?>
